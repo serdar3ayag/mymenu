@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style_p.css'%}">
+    <title>Rmenu</title>
+</head>
+<body>
+        <header>
+        <i class="fa fa-user"></i><b>{{user.username}}</b>
+        <a href="{% url 'logout' %}">Выйти</a><br>
+        <a href="{% url 'admin_name_change' %}">поменять данные для входа</a>
+        </header>
+        
+        <div class="under">
+        <a href="{% url 'add_category' %}">добавить категорию</a>
+        <a href="{% url 'add_dish' %}">добавить блюдо</a>
+        </div>
+        
+        <h3>Категории:</h3>
+
+        {% for categ in categories %}
+         <span><p>название: <i><big>{{categ.name_ru}} </big></i></span><br></p>
+         <span><a href="{% url 'edit_category' categ.id %}">Редактировать</a></span>
+         <span><a href="{% url 'view_cat' categ.id %}">Просмотреть</a></span>
+         <span><a href="{% url 'delete_category' categ.id %}" onclick="return confirm('Вы уверены?');">Удалить</a></span><br>
+         {% endfor %}
+
+        <h3>Блюда:</h3>
+        <div class="container">
+        {% for dish in dishes %}
+        <div class="dishhold"> 
+        <span><p>название: {{dish.name_ru}}</p></span><br>
+        <span><p>категория блюда: {{dish.Category}}</p></span><br>
+        <span><p>цена в манатах: {{dish.price}}</p></span><br>
+        <span><a href="{% url 'edit_dish' dish.id %}">Редактировать</a></p></span> 
+        <span><a href="{% url 'delete_dish' dish.id %}" onclick="return confirm('Вы уверены?');">Удалить</a></span>
+    </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

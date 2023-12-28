@@ -1,0 +1,90 @@
+html {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: #f1f1f1;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+header i {
+    margin-right: 1vh;
+    margin-left: 2vh;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(94, 94, 44);
+}
+
+span {
+    display: inline-block;
+}
+
+.under {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid darkolivegreen;
+    padding: 3vh;
+}
+
+h3 {
+    margin-top: 10vh;
+    justify-content: center;
+    color: rgb(94, 94, 44);
+}
+
+h1 {
+    justify-content: center;
+    color: darkolivegreen;
+}
+
+.dishhold {
+    border: 1px solid darkolivegreen;
+    width: fit-content;
+    padding: 1vh;
+    margin: 2vh;
+}
+
+.container {
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: darkolivegreen;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: olive;
+}

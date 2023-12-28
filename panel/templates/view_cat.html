@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style_p.css'%}">
+    <title>Rmenu</title>
+</head>
+<body>
+    
+    <center>
+        <h1>{{cat.name_ru}}</h1>
+        <p>image: <br>
+            {% if cat.image %}
+            <img src="{{ cat.image.url }}" alt="Uploaded Image">
+        {% else %}
+            <p>No image available</p>
+        {% endif %}
+        </p>
+    </center>
+
+
+
+<div class="container">
+    {% for dish in dishes %}
+    <div class="dishhold"> 
+        <span><p>название: {{dish.name_ru}}</p></span><br>
+        <span><p>название на английском: {{dish.name_en}}</p></span><br>
+        <span><p>цена в манатах: {{dish.price}}</p></span><br>
+        <span><a href="{% url 'edit_dish' dish.id %}">Редактировать</a></p></span> 
+        <span><a href="{% url 'delete_dish' dish.id %}" onclick="return confirm('Вы уверены?');">Удалить</a></span>
+
+    </div>
+        {% endfor %}
+</div>
+</body>
+</html>
